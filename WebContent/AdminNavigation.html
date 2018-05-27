@@ -7,6 +7,19 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<title>Administrator</title>
+		<script>
+		$(document).ready(function(){
+		    $('.nav li').click(function(event){
+		        //Elimina todas las clases 'active' existentes
+		        $('.active').removeClass('active');
+		        //Agregar la clase 'active' al link al que se le dió click
+		        $(this).addClass('active');
+		        //Cargar el contenido de href de esa etiqueta a
+		        $('#content').load($(this).find(a).attr('href'));      
+		        event.preventDefault();
+		    });
+		});
+		</script>
 	</head>
 	<body>
 		<ul style="width:100%" class="nav nav-pills nav-stacked">

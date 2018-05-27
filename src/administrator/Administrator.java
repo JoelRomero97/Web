@@ -30,7 +30,6 @@ public class Administrator extends HttpServlet
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 		out.println("<title>Administrator</title>");
 		out.println("<frameset cols='30%, *'>");
 		out.println("<frame src='AdminNavigation.html'>");
