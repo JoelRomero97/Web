@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<USUARIOS>
+	<usuario id="1" tipo="admin">
+		<nombre>Joel Romero</nombre>
+		<username>joelrg1288@gmail.com</username>
+		<password>qwerty12345</password>
+	</usuario>
+	<usuario id="2" tipo="prof">
+		<nombre>Yamani Álvarez</nombre>
+		<username>yamalvarez23@gmail.com</username>
+		<password>politecnico</password>
+	</usuario>
+</USUARIOS>

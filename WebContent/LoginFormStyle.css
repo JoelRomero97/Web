@@ -1,0 +1,20 @@
+body
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+h1
+{
+	padding-left: 35px;
+}
+
+form.form-horizontal
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
