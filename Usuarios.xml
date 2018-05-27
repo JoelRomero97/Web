@@ -8,11 +8,21 @@
   <usuario id="2" tipo="admin">
     <nombre>Yamani Alvarez</nombre>
     <username>yamalvarez23@gmail.com</username>
-    <password>politecnico</password>
+    <password>12345</password>
   </usuario>
-  <usuario id="3" tipo="prof">
-    <nombre>Edward</nombre>
-    <username>edward@gmail.com</username>
-    <password>cmsomvos</password>
+  <usuario id="3" tipo="admin">
+    <nombre>Aleli Badillo</nombre>
+    <username>aleliBadillo@gmail.com</username>
+    <password>09876</password>
+  </usuario>
+  <usuario id="4" tipo="prof">
+    <nombre>Edward Ramirez</nombre>
+    <username>wwejohncena19@gmail.com</username>
+    <password>09876</password>
+  </usuario>
+  <usuario id="5" tipo="prof">
+    <nombre>Ruben Peredo</nombre>
+    <username>rperedo@gmail.com</username>
+    <password>13579</password>
   </usuario>
 </USUARIOS>

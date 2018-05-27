@@ -43,11 +43,11 @@ public class RegisterUser
 	
 	public boolean addUser () throws JDOMException, IOException
 	{
-		int id = getLastID () + 1;
 		this.raiz = new Element ("USUARIOS");
-		this.raiz.addContent(createUser (1, "Joel Romero", "joelrg1288@gmail.com", "12345", "admin"));
-		this.raiz.addContent(createUser (2, "Yamani Alvarez", "yamalvarez23@gmail.com", "politecnico", "admin"));
-		this.usuario = createUser (id, this.name, this.email, this.password, this.tipo);
+		//this.raiz.addContent(createUser (1, "Joel Romero", "joelrg1288@gmail.com", "12345", "admin"));
+		//this.raiz.addContent(createUser (2, "Yamani Alvarez", "yamalvarez23@gmail.com", "politecnico", "admin"));
+		addPastUsers ();
+		this.usuario = createUser (this.lastID + 1, this.name, this.email, this.password, this.tipo);
 		this.raiz.addContent(this.usuario);
 		this.documento = new Document(this.raiz);
 		this.xml = new XMLOutputter ();
@@ -57,32 +57,6 @@ public class RegisterUser
 		this.writer.flush();
 		this.writer.close();
 		return true;
-	}
-	
-	public int getLastID () throws JDOMException, IOException
-	{
-		try
-		{
-			//Objeto de tipo Document para manipular archivo XML
-			this.documento = builder.build(this.archivo);
-			//Obtenemos el nodo raíz del documento XML
-			this.raiz = this.documento.getRootElement();
-			//Obtenemos la lista de todos los elementos 'usuario' del nodo raíz
-			this.users = this.raiz.getChildren("usuario");
-			//Recorremos la lista de usuarios obtenida
-			for (Element usuario : this.users)
-			{
-				//Obtenemos el username del i-ésimo elemento de la lista
-				this.lastID = Integer.parseInt(usuario.getAttributeValue("id"));
-			}
-		}catch (IOException e)
-		{
-			e.printStackTrace();
-		}catch (JDOMException e)
-		{
-			e.printStackTrace();
-		}
-		return this.lastID;
 	}
 	
 	public Element createUser (int id, String name, String email, String password, String tipo)
@@ -100,5 +74,36 @@ public class RegisterUser
 		aux.addContent(user);
 		aux.addContent(pass);
 		return aux;
+	}
+	
+	public void addPastUsers ()
+	{
+		try
+		{
+			//Objeto de tipo Document para manipular archivo XML
+			this.documento = builder.build(this.archivo);
+			//Obtenemos el nodo raíz del documento XML
+			Element raiz = this.documento.getRootElement();
+			//Obtenemos la lista de todos los elementos 'usuario' del nodo raíz
+			this.users = raiz.getChildren("usuario");
+			//Recorremos la lista de usuarios obtenida
+			for (Element usuario : this.users)
+			{
+				//Obtenemos el username del i-ésimo elemento de la lista
+				this.lastID = Integer.parseInt(usuario.getAttributeValue("id"));
+				String tipo = usuario.getAttributeValue("tipo");
+				String nombre = usuario.getChildText("nombre");
+				String email = usuario.getChildText("username");
+				String password = usuario.getChildText("password");
+				this.raiz.addContent(createUser (this.lastID, nombre, email, password, tipo));
+			}
+			return;
+		}catch (IOException e)
+		{
+			e.printStackTrace();
+		}catch (JDOMException e)
+		{
+			e.printStackTrace();
+		}
 	}
 }
