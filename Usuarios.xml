@@ -3,7 +3,7 @@
 	<usuario id="1" tipo="admin">
 		<nombre>Joel Romero</nombre>
 		<username>joelrg1288@gmail.com</username>
-		<password>qwerty12345</password>
+		<password>12345</password>
 	</usuario>
 	<usuario id="2" tipo="prof">
 		<nombre>Yamani Álvarez</nombre>
