@@ -43,19 +43,19 @@
 					<div class="modal-body">
 						<form action="Register" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Name" id="email">
+								<input type="text" class="form-control" placeholder="Name" name="name">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email" id="email">
+								<input type="email" class="form-control" placeholder="Email" name="username">
 							</div>
 							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password" id="pwd">
+								<input type="password" class="form-control" placeholder="Password" name="password">
 							</div>
 							<div class="radio">
-								<label><input type="radio" name="tipo">Administrator</label>
+								<label><input type="radio" name="tipo" value="admin">Administrator</label>
 							</div>
 							<div class="radio">
-								<label><input type="radio" name="tipo">Professor</label>
+								<label><input type="radio" name="tipo" value="prof">Professor</label>
 							</div>
 							<button type="submit" class="btn btn-default">Register</button>
 						</form>
