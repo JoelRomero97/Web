@@ -1,0 +1,15 @@
+div.modal-body
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}
+
+form.form-horizontal
+{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-content: center;
+}

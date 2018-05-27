@@ -8,12 +8,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  * Servlet implementation class Login
  */
-@WebServlet("/Administrator")
-public class Administrator extends HttpServlet
+@WebServlet("/AdministratorView")
+public class AdministratorView extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
 
@@ -27,16 +28,20 @@ public class Administrator extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		//Da el canal desde el servidor hacia cliente
 		PrintWriter out = response.getWriter();
+		//Se recupera la sesión
+		HttpSession session = request.getSession();
+		//Se recupera el atributo nombre
+		String nombre = (String) session.getAttribute("nombre");
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
 		out.println("<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>");
 		out.println("<title>Administrator</title>");
-		out.println("<frameset cols='30%, *'>");
-		out.println("<frame src='AdminNavigation.html'>");
-		out.println("<frame src='AdministratorView' name='Vista'>");
-		out.println("</frameset>");
 		out.println("</head>");
+		out.println("<body>");
+		out.println("<h1>HELLO ADMINISTRATOR: " + nombre + "</h1>");
+		out.println("</body>");
+		out.println("</html>");
 	}
 
 }
