@@ -2,27 +2,14 @@
 <USUARIOS>
   <usuario id="1" tipo="admin">
     <nombre>Joel Romero</nombre>
-    <username>joelrg1288@gmail.com</username>
+    <email>joelrg1288@gmail.com</email>
     <password>12345</password>
+    <genero>Male</genero>
   </usuario>
   <usuario id="2" tipo="admin">
     <nombre>Yamani Alvarez</nombre>
-    <username>yamalvarez23@gmail.com</username>
+    <email>yamalvarez23@gmail.com</email>
     <password>12345</password>
-  </usuario>
-  <usuario id="3" tipo="admin">
-    <nombre>Aleli Badillo</nombre>
-    <username>aleliBadillo@gmail.com</username>
-    <password>09876</password>
-  </usuario>
-  <usuario id="4" tipo="prof">
-    <nombre>Edward Ramirez</nombre>
-    <username>wwejohncena19@gmail.com</username>
-    <password>09876</password>
-  </usuario>
-  <usuario id="5" tipo="prof">
-    <nombre>Ruben Peredo</nombre>
-    <username>rperedo@gmail.com</username>
-    <password>13579</password>
+    <genero>Female</genero>
   </usuario>
 </USUARIOS>

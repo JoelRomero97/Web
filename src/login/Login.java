@@ -11,6 +11,8 @@ import javax.servlet.http.HttpSession;
 
 import org.jdom2.JDOMException;
 
+import shared.User;
+
 /**
  * Servlet implementation class Login
  */
@@ -26,16 +28,16 @@ public class Login extends HttpServlet
 	throws ServletException, IOException
 	{
 		//Recuperamos los parámetros user y password del formulario
-		String user = request.getParameter("username");
+		String user = request.getParameter("email");
 		String pass = request.getParameter("password");
+		//Se crea un usuario nuevo con los parámetros de email y contraseña
+		User usuario = new User (user, pass);
 		//Se recupera la sesión
 		HttpSession session = request.getSession();
-		//Se guarda a nivel de sesión el username ingresado (clave - objeto)
-		session.setAttribute("email", user);
 		try
 		{
-			LogUser usuario = new LogUser (user);
-			if (usuario.validateUser(user, pass) == 0)
+			LogUser login = new LogUser (usuario);
+			if (login.validateUser(user, pass) == 0)
 			{
 				//Se guarda a nivel de sesión el nombre del usuario (clave - objeto)
 				session.setAttribute("nombre", usuario.getNombre());
@@ -46,7 +48,7 @@ public class Login extends HttpServlet
 					response.sendRedirect("Professor");
 				else
 					response.sendRedirect("Fail?error=tipo");
-			}else if (usuario.validateUser(user, pass) == 1)
+			}else if (login.validateUser(user, pass) == 1)
 				response.sendRedirect("Fail?error=pass");
 			else
 				response.sendRedirect("Fail?error=user");

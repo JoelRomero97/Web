@@ -26,7 +26,7 @@
 			<li class="active"><a href="AdministratorView" target="Vista">Home</a></li>
   			<li><a data-toggle="modal" data-target="#AddUser">Add User</a></li>
   			<li><a href="/ConfigUser" target="Vista">Modify/Delete User</a></li>
-  			<li><a href="LoginForm.html">Logout</a></li>
+  			<li><a href="localhost:8088/Proyecto/LoginForm.html">Logout</a></li>
 		</ul>
 		
 		
@@ -43,10 +43,10 @@
 					<div class="modal-body">
 						<form action="Register" method="post">
 							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Name" name="name">
+								<input type="text" class="form-control" placeholder="Name" name="nombre">
 							</div>
 							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email" name="username">
+								<input type="email" class="form-control" placeholder="Email" name="email">
 							</div>
 							<div class="form-group">
 								<input type="password" class="form-control" placeholder="Password" name="password">
@@ -56,6 +56,13 @@
 							</div>
 							<div class="radio">
 								<label><input type="radio" name="tipo" value="prof">Professor</label>
+							</div>
+							<br><br>
+							<div class="radio">
+								<label><input type="radio" name="genero" value="Male">Masculino</label>
+							</div>
+							<div class="radio">
+								<label><input type="radio" name="genero" value="Female">Femenino</label>
 							</div>
 							<button type="submit" class="btn btn-default">Register</button>
 						</form>
