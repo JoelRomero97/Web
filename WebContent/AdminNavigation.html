@@ -1,74 +1,33 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<!-- BOOTSTRAP -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-		<title>Administrator</title>
-		<script>
-		$(document).ready(function(){
-		    $('.nav li').click(function(event){
-		        //Elimina todas las clases 'active' existentes
-		        $('.active').removeClass('active');
-		        //Agregar la clase 'active' al link al que se le dió click
-		        $(this).addClass('active');
-		        //Cargar el contenido de href de esa etiqueta a
-		        $('#content').load($(this).find(a).attr('href'));      
-		        event.preventDefault();
-		    });
-		});
-		</script>
-	</head>
-	<body>
-		<ul style="width:100%" class="nav nav-pills nav-stacked">
-			<li class="active"><a href="AdministratorView" target="Vista">Home</a></li>
-  			<li><a data-toggle="modal" data-target="#AddUser">Add User</a></li>
-  			<li><a href="/ConfigUser" target="Vista">Modify/Delete User</a></li>
-  			<li><a href="localhost:8088/Proyecto/LoginForm.html">Logout</a></li>
-		</ul>
-		
-		
-		
-		
-		<!-- ADD USER FORM -->
-		<div class="modal fade" id="AddUser" role="dialog">
-			<div class="modal-dialog">
-      			<div class="modal-content">
-					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal">&times;</button>
-							<h4 class="modal-title">Add user</h4>
-					</div>
-					<div class="modal-body">
-						<form action="Register" method="post">
-							<div class="form-group">
-								<input type="text" class="form-control" placeholder="Name" name="nombre">
-							</div>
-							<div class="form-group">
-								<input type="email" class="form-control" placeholder="Email" name="email">
-							</div>
-							<div class="form-group">
-								<input type="password" class="form-control" placeholder="Password" name="password">
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="tipo" value="admin">Administrator</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="tipo" value="prof">Professor</label>
-							</div>
-							<br><br>
-							<div class="radio">
-								<label><input type="radio" name="genero" value="Male">Masculino</label>
-							</div>
-							<div class="radio">
-								<label><input type="radio" name="genero" value="Female">Femenino</label>
-							</div>
-							<button type="submit" class="btn btn-default">Register</button>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/lib/w3-colors-camo.css">
+	<link rel="stylesheet" type="text/css" href="Estilos.css">
+	<script src="Scripts.js" type="text/javascript" language="javascript"></script>
+	<title>Administrator</title>
+</head>
+<body>
+	<!-- BARRA NAVEGACIÓN -->
+	<div class="w3-bar w3-light-gray w3-border w3-large" id="barra">
+		<a href="#" class="w3-bar-item w3-button w3-camo-gray w3-hover-blue-gray" id="links_barra"><i class="material-icons">&#xe88a;</i>Home</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-sand" id="links_barra"><i class="material-icons">&#xe148;</i>Add User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-pale-yellow" id="links_barra"><i class="material-icons">&#xe150;</i>Edit User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-sand" id="links_barra"><i class="material-icons">&#xe16c;</i>Delete User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-pale-yellow" id="links_barra"><i class="material-icons">&#xe879;</i>Logout</a>
+	</div>
+
+	<div align="center">
+  		<p class="w3-xxlarge">Welcome Administrator!</p>
+	</div>
+	<div align="center">
+		<img class="slideshow" src="images/Cancun.jpeg">
+		<img class="slideshow" src="images/Amsterdam.jpeg">
+		<img class="slideshow" src="images/Florida.jpeg">
+	</div>
+	<script>carousel();</script>
+</body>
 </html>

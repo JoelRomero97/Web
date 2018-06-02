@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Lobster">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+	<link rel="stylesheet" type="text/css" href="https://www.w3schools.com/lib/w3-colors-camo.css">
+	<link rel="stylesheet" type="text/css" href="Estilos.css">
+	<title>Add User</title>
+</head>
+<body>
+	<!-- BARRA NAVEGACIÓN -->
+	<div class="w3-bar w3-light-gray w3-border w3-large" id="barra">
+		<a href="http://localhost:8088/Proyecto/Administrator" class="w3-bar-item w3-button w3-hover-sand" id="links_barra"><i class="material-icons">&#xe88a;</i>Home</a>
+		<a href="#" class="w3-bar-item w3-button w3-camo-gray w3-hover-blue-gray" id="links_barra"><i class="material-icons">&#xe148;</i>Add User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-pale-yellow" id="links_barra"><i class="material-icons">&#xe150;</i>Edit User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-sand" id="links_barra"><i class="material-icons">&#xe16c;</i>Delete User</a>
+		<a href="#" class="w3-bar-item w3-button w3-hover-pale-yellow" id="links_barra"><i class="material-icons">&#xe879;</i>Logout</a>
+	</div>
+
+	<!-- FORM FOR ADD USER -->
+	<div align="center">
+  		<p class="w3-xxlarge">Add User Form</p>
+	</div>
+	<form action="Register" method="post" target="AddUserForm.html">
+		<div align="center">
+			<input type="text" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Name" name="nombre" required>
+			<input type="email" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Email" name="email" required>
+			<input type="password" pattern=".{8,}" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Password" name="password" required>
+			<p class="w3-text-dark-gray w3-large">Type:</p>
+			<input type="radio" name="tipo" value="Administrator" required><label> Administrator </label><br/>
+			<input type="radio" name="tipo" value="Professor" required><label> Professor</label><br/>
+			<p class="w3-text-dark-gray w3-large">Gender:</p>
+			<input type="radio" name="genero" value="Male" required><label> Male </label><br/>
+			<input type="radio" name="genero" value="Female" required><label> Female</label>
+		</div>
+		<div class="w3-text-dark-gray-gray" align="center">
+			<br/><button type="submit" class="w3-button w3-border w3-border-dark-gray w3-hover-pale-green w3-round-xxlarge">Register</button>
+		</div>
+	</form>
+</body>
+</html>

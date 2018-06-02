@@ -1,0 +1,82 @@
+/*Body and Titles Styles*/
+body, h1, h2
+{
+	font-family: "Lobster", serif;
+}
+
+h1, p
+{
+	color: tan;
+}
+
+h2, label, span.w3-large
+{
+	color: brown;
+}
+
+/*Slideshow Styles*/
+.slideshow
+{
+	display: none;
+	width: 95%;
+	height: 360px;
+}
+
+/*Input Styles*/
+#campo
+{
+	width: 23%;
+}
+
+/*Button Styles*/
+.button
+{
+	margin-bottom: 2%;
+}
+
+#boton_final
+{
+	margin-bottom: 2%;
+}
+
+/*Avatar Styles*/
+#avatar
+{
+	width: 85px;
+}
+
+/*Navigation Styles*/
+#barra
+{
+	/*height: 5%;*/
+	width: 100%;
+	/*position: fixed;*/
+}
+
+#links_barra
+{
+	width: 20%;
+}
+
+/*Table Styles*/
+li:hover:nth-child(odd)
+{
+	background-color: #FFDD8E;
+}
+
+li:hover:nth-child(even)
+{
+	background-color: #CCFCDD;
+}
+
+/*Modal Styles*/
+#modal_card
+{
+	max-width: 500px;
+}
+
+#modal_avatar
+{
+	width: 30%;
+	margin-top: 4%;
+}
