@@ -97,5 +97,4 @@ public class Register extends HttpServlet
 		out.println("</body>");
 		out.println("</html>");
 	}
-
 }

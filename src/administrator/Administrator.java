@@ -49,8 +49,8 @@ public class Administrator extends HttpServlet
 		out.println("<div class='w3-bar w3-light-gray w3-border w3-large' id='barra'>");
 		out.println("<a href='#' class='w3-bar-item w3-button w3-camo-gray w3-hover-blue-gray' id='links_barra'><i class='material-icons'>&#xe88a;</i>Home</a>");
 		out.println("<a href='http://localhost:8088/Proyecto/AddUserForm.html' class='w3-bar-item w3-button w3-hover-sand' id='links_barra'><i class='material-icons'>&#xe148;</i>Add User</a>");
-		out.println("<a href='#' class='w3-bar-item w3-button w3-hover-pale-yellow' id='links_barra'><i class='material-icons'>&#xe150;</i>Edit User</a>");
-		out.println("<a href='#' class='w3-bar-item w3-button w3-hover-sand' id='links_barra'><i class='material-icons'>&#xe16c;</i>Delete User</a>");
+		out.println("<a href='http://localhost:8088/Proyecto/Select?Action=Edit' class='w3-bar-item w3-button w3-hover-pale-yellow' id='links_barra'><i class='material-icons'>&#xe150;</i>Edit User</a>");
+		out.println("<a href='http://localhost:8088/Proyecto/Select?Action=Delete' class='w3-bar-item w3-button w3-hover-sand' id='links_barra'><i class='material-icons'>&#xe16c;</i>Delete User</a>");
 		out.println("<a href='http://localhost:8088/Proyecto/LoginForm.html' class='w3-bar-item w3-button w3-hover-pale-yellow' id='links_barra'><i class='material-icons'>&#xe879;</i>Logout</a>");
 		out.println("</div>");
 		//WELCOME

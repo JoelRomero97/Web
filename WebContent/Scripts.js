@@ -20,10 +20,10 @@ function showModal(document)
 function closeModal(document)
 {
 	document.getElementById('modal').style.display='none'
-   window.location.href = 'http://localhost:8088/Proyecto/AddUserForm.html';
+    window.location.href = 'http://localhost:8088/Proyecto/AddUserForm.html';
 }
 
-function clickOutside ()
+function clickOutside()
 {
 	window.onclick = function modalFunction(event)
 	{
@@ -31,3 +31,19 @@ function clickOutside ()
 	        closeModal(document);
 	}
 }
+
+function closeModalEdit(document)
+{
+	document.getElementById('modal').style.display='none'
+    window.location.href = 'http://localhost:8088/Proyecto/Select?Action=Edit';
+}
+
+function clickOutsideEdit()
+{
+	window.onclick = function modalFunction(event)
+	{
+	    if (event.target == document.getElementById('modal'))
+	        closeModalEdit(document);
+	}
+}
+
