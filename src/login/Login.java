@@ -34,6 +34,8 @@ public class Login extends HttpServlet
 		User usuario = new User (user, pass);
 		//Se recupera la sesión
 		HttpSession session = request.getSession();
+		//Se guarda a nivel de sesión el email del usuario (clave - objeto)
+		session.setAttribute("email", usuario.getEmail());
 		try
 		{
 			LogUser login = new LogUser (usuario);

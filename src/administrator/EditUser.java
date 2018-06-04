@@ -30,47 +30,30 @@ public class EditUser extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
+		//Ruta para redireccionar después de editar el usuario
+		String ruta = "";
 		//Inicializar la lista de usuarios
 		this.usuarios = new ArrayList <User> ();
 		//Especificar el tipo de texto que se va a enviar al cliente
 		response.setContentType("text/html;charset=UTF-8");
 		HttpSession session = request.getSession();
 		this.usuarios = (ArrayList<User>) session.getAttribute("usuarios");
+		//Recuperar el nombre del usuario logueado
+		String nombre = (String) session.getAttribute("nombre");
 		String id_usuario = (String) session.getAttribute("id");
 		int id = Integer.parseInt(id_usuario);
 		this.usuario = new User();
-		System.out.println("Id formulario: '" + id + "'");
-		System.out.println("Tipo formulario: '" + request.getParameter("tipo") + "'");
-		System.out.println("Nombre formulario: '" + request.getParameter("nombre") + "'");
-		System.out.println("Email formulario: '" + request.getParameter("email") + "'");
-		System.out.println("Password formulario: '" + request.getParameter("password") + "'");
-		System.out.println("Genero formulario: '" + request.getParameter("genero") + "'");
-		if (request.getParameter("nombre").equals(""))
-			this.usuario.setNombre(this.usuarios.get(id).getNombre());
-		else
-			this.usuario.setNombre(request.getParameter("nombre"));
-		if (request.getParameter("email").equals(""))
-			this.usuario.setNombre(this.usuarios.get(id).getEmail());
-		else
-			this.usuario.setEmail(request.getParameter("email"));
-		if (request.getParameter("password").equals(""))
-			this.usuario.setNombre(this.usuarios.get(id).getPassword());
-		else
-			this.usuario.setPassword(request.getParameter("password"));
-		if (request.getParameter("tipo") != null)
-			this.usuario.setTipo(request.getParameter("tipo"));
-		else
-			this.usuario.setNombre(this.usuarios.get(id).getTipo());
-		if (request.getParameter("genero") != null)
-			this.usuario.setGenero(request.getParameter("genero"));
-		else
-			this.usuario.setNombre(this.usuarios.get(id).getGenero());
-		this.usuario.setId(id);
+		modify_user(request, id);
 		this.usuarios.set(id, this.usuario);
-		show_modal (response);
+		this.usuario.writeUsers(usuarios);
+		if ((this.usuarios.get(id).getNombre()).equals(nombre))
+			ruta = "http://localhost:8088/Proyecto/LoginForm.html";
+		else
+			ruta = "http://localhost:8088/Proyecto/Select?Action=Edit";
+		show_modal (response, ruta);
 	}
 	
-	public void show_modal(HttpServletResponse response) throws IOException
+	public void show_modal(HttpServletResponse response, String ruta) throws IOException
 	{
 		//Especificar el tipo de texto que se va a enviar al cliente
 		response.setContentType("text/html;charset=UTF-8");
@@ -92,7 +75,7 @@ public class EditUser extends HttpServlet
 		out.println("<div id='modal' class='w3-modal'>");
 		out.println("<div class='w3-modal-content w3-card-4 w3-animate-zoom' id='modal_card'>");
 		out.println("<header class='w3-container w3-teal'>");
-		out.println("<span onclick='closeModalEdit(document);' class='w3-button w3-display-topright w3-xlarge'>&times;</span>");
+		out.println("<span onclick='closeModalEdit(document,'" + ruta + "');' class='w3-button w3-display-topright w3-xlarge'>&times;</span>");
 		out.println("<h3>El usuario fue modificado correctamente</h3>");
 		out.println("</header>");
 		out.println("<div class='w3-container'>");
@@ -105,8 +88,34 @@ public class EditUser extends HttpServlet
 		out.println("</div><br/>");
 		out.println("</div>");
 		out.println("</div>");
-		out.println("<script>clickOutsideEdit();</script>");
+		out.println("<script>clickOutsideEdit('" + ruta + "');</script>");
 		out.println("</body>");
 		out.println("</html>");
+	}
+	
+	public void modify_user(HttpServletRequest request, int id)
+	{
+		String genero = request.getParameter("genero");
+		String tipo = request.getParameter("tipo");
+		String nombre = request.getParameter("nombre");
+		String email = request.getParameter("email");
+		String password = request.getParameter("password");
+		//Se almacena el id del usuario
+		this.usuario.setId(id);
+		//Se almacena el genero del usuario
+		genero = genero == null ? this.usuarios.get(id).getGenero() : genero;
+		this.usuario.setGenero(genero);
+		//Se almacena el tipo del usuario
+		tipo = tipo == null ? this.usuarios.get(id).getTipo() : tipo;
+		this.usuario.setTipo(tipo);
+		//Se almacena el nombre del usuario
+		nombre = nombre.isEmpty() ? this.usuarios.get(id).getNombre() : nombre;
+		this.usuario.setNombre(nombre);
+		//Se almacena el email del usuario
+		email = email.isEmpty() ? this.usuarios.get(id).getEmail() : email;
+		this.usuario.setEmail(email);
+		//Se almacena el password del usuario
+		password = password.isEmpty() ? this.usuarios.get(id).getPassword() : password;
+		this.usuario.setPassword(password);
 	}
 }

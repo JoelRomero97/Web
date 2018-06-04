@@ -1,6 +1,7 @@
 package shared;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +10,10 @@ import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
 import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
+
+import administrator.RegisterUser;
 
 public class User
 {
@@ -18,6 +23,7 @@ public class User
 	private String password;
 	private String tipo;
 	private String genero;
+	private String ruta = "C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Usuarios.xml";
 	
 	/*
 	 * Constructor utilizado para crear un usuario vacío
@@ -53,7 +59,7 @@ public class User
 		Document documento;
 		SAXBuilder builder = new SAXBuilder ();
 		List <Element> users;
-		File archivo = new File ("C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Usuarios.xml");
+		File archivo = new File (this.ruta);
 		try
 		{
 			//Objeto de tipo Document para manipular archivo XML
@@ -83,6 +89,32 @@ public class User
 			e.printStackTrace();
 		}
 		return usuarios;
+	}
+	
+	public void writeUsers (ArrayList <User> usuarios)
+	{
+		Document documento;
+		XMLOutputter xml = new XMLOutputter ();
+		FileWriter writer;
+		try
+		{
+			//Obtenemos el nodo raíz del documento XML
+			Element raiz = new Element ("USUARIOS");
+			for (User usuario : usuarios)
+			{
+				RegisterUser r = new RegisterUser ();
+				raiz.addContent(r.createUser(usuario));
+			}
+			documento = new Document (raiz);
+			writer = new FileWriter (this.ruta);
+			xml.setFormat(Format.getPrettyFormat());
+			xml.output(documento, writer);
+			writer.flush();
+			writer.close();
+		}catch (IOException e)
+		{
+			e.printStackTrace();
+		}
 	}
 	
 	public String getNombre ()

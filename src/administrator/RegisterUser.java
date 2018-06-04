@@ -27,6 +27,10 @@ public class RegisterUser
 	private String ruta;
 	private int lastID;
 	
+	public RegisterUser ()
+	{
+	}
+	
 	public RegisterUser (User usuario)
 	{
 		//Ruta del archivo a leer/escribir

@@ -32,18 +32,18 @@ function clickOutside()
 	}
 }
 
-function closeModalEdit(document)
+function closeModalEdit(document, ruta)
 {
 	document.getElementById('modal').style.display='none'
-    window.location.href = 'http://localhost:8088/Proyecto/Select?Action=Edit';
+    window.location.href = ruta;
 }
 
-function clickOutsideEdit()
+function clickOutsideEdit(ruta)
 {
 	window.onclick = function modalFunction(event)
 	{
 	    if (event.target == document.getElementById('modal'))
-	        closeModalEdit(document);
+	        closeModalEdit(document, ruta);
 	}
 }
 
