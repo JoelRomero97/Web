@@ -46,12 +46,12 @@ public class Delete extends HttpServlet
 		usuario.writeUsers(this.usuarios);
 		//Recuperar el nombre del usuario logueado
 		String nombre = (String) session.getAttribute("nombre");
-		String ruta = "http://localhost:8088/Proyecto/LoginForm.html";
+		String ruta = "LoginForm.html";
 		for (User u : usuarios)
 		{
 			if ((u.getNombre()).equals(nombre))
 			{
-				ruta = "http://localhost:8088/Proyecto/Select?Action=Delete";
+				ruta = "Select?Action=Delete";
 				break;
 			}
 		}

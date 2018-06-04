@@ -6,7 +6,7 @@
     <password>12345678</password>
     <genero>Male</genero>
   </usuario>
-  <usuario id="1" tipo="Professor">
+  <usuario id="2" tipo="Administrator">
     <nombre>Yamani Alvarez</nombre>
     <email>yamalvarez23@gmail.com</email>
     <password>12345678</password>

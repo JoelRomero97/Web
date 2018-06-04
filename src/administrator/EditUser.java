@@ -47,9 +47,9 @@ public class EditUser extends HttpServlet
 		this.usuarios.set(id, this.usuario);
 		this.usuario.writeUsers(usuarios);
 		if ((this.usuarios.get(id).getNombre()).equals(nombre))
-			ruta = "http://localhost:8088/Proyecto/LoginForm.html";
+			ruta = "LoginForm.html";
 		else
-			ruta = "http://localhost:8088/Proyecto/Select?Action=Edit";
+			ruta = "Select?Action=Edit";
 		show_modal (response, ruta);
 	}
 	

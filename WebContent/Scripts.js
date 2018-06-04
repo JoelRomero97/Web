@@ -20,7 +20,7 @@ function showModal(document)
 function closeModal(document)
 {
 	document.getElementById('modal').style.display='none'
-    window.location.href = 'http://localhost:8088/Proyecto/AddUserForm.html';
+    window.location.href = 'AddUserForm.html';
 }
 
 function clickOutside()
