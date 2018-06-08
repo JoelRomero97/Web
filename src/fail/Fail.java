@@ -45,7 +45,7 @@ public class Fail extends HttpServlet
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Administrator</title>");
+		out.println("<title>Fail</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>AN ERROR HAS OCCURED: </h1>");

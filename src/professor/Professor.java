@@ -35,7 +35,7 @@ public class Professor extends HttpServlet
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
-		out.println("<title>Administrator</title>");
+		out.println("<title>Professor</title>");
 		out.println("</head>");
 		out.println("<body>");
 		out.println("<h1>HELLO PROFESSOR: " + nombre + "</h1>");

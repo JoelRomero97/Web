@@ -53,6 +53,7 @@ public class Edit extends HttpServlet
 		out.println("<link rel='stylesheet' href='https://fonts.googleapis.com/icon?family=Material+Icons'>");
 		out.println("<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lobster'>");
 		out.println("<link rel='stylesheet' href='https://www.w3schools.com/lib/w3-colors-camo.css'/>");
+		out.println("<link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'>");
 		out.println("<link rel='stylesheet' href='Estilos.css' type='text/css'/>");
 		out.println("<title>Select User</title>");
 		out.println("</head>");

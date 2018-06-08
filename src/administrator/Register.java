@@ -69,6 +69,7 @@ public class Register extends HttpServlet
 		out.println("<head>");
 		out.println("<link rel='stylesheet' href='https://www.w3schools.com/w3css/4/w3.css'>");
 		out.println("<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Lobster'>");
+		out.println("<link rel='shortcut icon' href='images/favicon.ico' type='image/x-icon'>");
 		out.println("<link rel='stylesheet' type='text/css' href='Estilos.css'>");
 		out.println("<script src='Scripts.js' type='text/javascript'></script>");
 		out.println("</head>");
