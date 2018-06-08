@@ -5,6 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.List;
 
+import org.jdom2.DocType;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -24,6 +25,7 @@ public class RegisterUser
 	private File archivo;
 	private User usuario;
 	private Element raiz;
+	private DocType dtd;
 	private String ruta;
 	private int lastID;
 	
@@ -60,8 +62,14 @@ public class RegisterUser
 			this.usuario.setId(this.lastID + 1);
 			//Se agrega al nuevo usuario al archivo XML
 			this.raiz.addContent(createUser (this.usuario));
+			//Tipo de documento
+			this.dtd = new DocType (this.raiz.getName());
+			this.dtd.setInternalSubset("<!ELEMENT USUARIOS (usuario+)>\n"
+					+ "<!ELEMENT usuario (nombre,email,password,genero)>\n<!ELEMENT nombre (#PCDATA)>\n"
+					+ "<!ELEMENT email (#PCDATA)>\n<!ELEMENT password (#PCDATA)>\n<!ELEMENT genero (#PCDATA)>\n"
+					+ "<!ATTLIST usuario id CDATA #REQUIRED>\n<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>\n");
 			//Se escribe el documento XML
-			this.documento = new Document(this.raiz);
+			this.documento = new Document(this.raiz, this.dtd);
 			this.xml = new XMLOutputter ();
 			this.writer = new FileWriter (this.ruta);
 			this.xml.setFormat(Format.getPrettyFormat());

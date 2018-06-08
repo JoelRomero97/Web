@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE USUARIOS [
+<!ELEMENT USUARIOS (usuario+)>
+<!ELEMENT usuario (nombre,email,password,genero)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT email (#PCDATA)>
+<!ELEMENT password (#PCDATA)>
+<!ELEMENT genero (#PCDATA)>
+<!ATTLIST usuario id CDATA #REQUIRED>
+<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>
+]>
 <USUARIOS>
   <usuario id="1" tipo="Administrator">
     <nombre>Joel Romero</nombre>
