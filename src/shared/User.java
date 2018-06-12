@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.jdom2.DocType;
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.JDOMException;
@@ -96,6 +97,7 @@ public class User
 		Document documento;
 		XMLOutputter xml = new XMLOutputter ();
 		FileWriter writer;
+		DocType dtd;
 		try
 		{
 			//Obtenemos el nodo raíz del documento XML
@@ -105,7 +107,13 @@ public class User
 				RegisterUser r = new RegisterUser ();
 				raiz.addContent(r.createUser(usuario));
 			}
-			documento = new Document (raiz);
+			dtd = new DocType (raiz.getName());
+			dtd.setInternalSubset("<!ELEMENT USUARIOS (usuario+)>\n"
+					+ "<!ELEMENT usuario (nombre,email,password,genero)>\n<!ELEMENT nombre (#PCDATA)>\n"
+					+ "<!ELEMENT email (#PCDATA)>\n<!ELEMENT password (#PCDATA)>\n<!ELEMENT genero (#PCDATA)>\n"
+					+ "<!ATTLIST usuario id CDATA #REQUIRED>\n<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>\n");
+			//Se escribe el documento XML
+			documento = new Document(raiz, dtd);
 			writer = new FileWriter (this.ruta);
 			xml.setFormat(Format.getPrettyFormat());
 			xml.output(documento, writer);
