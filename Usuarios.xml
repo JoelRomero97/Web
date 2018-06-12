@@ -1,17 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE USUARIOS [
-<!ELEMENT USUARIOS (usuario+)>
-<!ELEMENT usuario (nombre,email,password,genero)>
-<!ELEMENT nombre (#PCDATA)>
-<!ELEMENT email (#PCDATA)>
-<!ELEMENT password (#PCDATA)>
-<!ELEMENT genero (#PCDATA)>
-<!ATTLIST usuario id CDATA #REQUIRED>
-<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>
-]>
 <USUARIOS>
-  <usuario id="1" tipo="Administrator">
-    <nombre>Joel Romero</nombre>
+  <usuario id="0" tipo="Administrator">
+    <nombre>Joel Mauricio Romero Gamarra</nombre>
     <email>joelrg1288@gmail.com</email>
     <password>12345678</password>
     <genero>Male</genero>
@@ -21,5 +11,11 @@
     <email>yamalvarez23@gmail.com</email>
     <password>12345678</password>
     <genero>Female</genero>
+  </usuario>
+  <usuario id="3" tipo="Professor">
+    <nombre>Ruben Peredo Valderrama</nombre>
+    <email>rubenperedo@gmail.com</email>
+    <password>12345678</password>
+    <genero>Male</genero>
   </usuario>
 </USUARIOS>
