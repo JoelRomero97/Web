@@ -88,15 +88,29 @@ public class Edit extends HttpServlet
 		out.println("</div>");
 		out.println("<form action='EditUser' method='post'>");
 		out.println("<div class='form-group col-sm-10' align='center'>");
-		out.println("<input type='name' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Name' name='nombre'>");
-		out.println("<input type='email' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Email' name='email'>");
-		out.println("<input type='password' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Password' name='password'>");
+		out.println("<input type='name' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Name' name='nombre' value='" + this.usuarios.get(id).getNombre() + "'>");
+		out.println("<input type='email' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Email' name='email' value='" + this.usuarios.get(id).getEmail() + "'>");
+		out.println("<input type='password' class='w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input' id='campo' placeholder='Password' name='password' value='" + this.usuarios.get(id).getPassword() + "'>");
 		out.println("<p class='w3-text-dark-gray w3-large'>Type:</p>");
-		out.println("<input type='radio' name='tipo' value='Administrator'><label> Administrator</label><br/>");
-		out.println("<input type='radio' name='tipo' value='Professor'><label> Professor</label><br/>");
+		if ((this.usuarios.get(id).getTipo()).equals("Administrator"))
+		{
+			out.println("<input type='radio' name='tipo' value='Administrator' checked><label> Administrator</label><br/>");
+			out.println("<input type='radio' name='tipo' value='Professor'><label> Professor</label><br/>");
+		}else
+		{
+			out.println("<input type='radio' name='tipo' value='Administrator'><label> Administrator</label><br/>");
+			out.println("<input type='radio' name='tipo' value='Professor' checked><label> Professor</label><br/>");
+		}
 		out.println("<p class='w3-text-dark-gray w3-large'>Gender:</p>");
-		out.println("<input type='radio' name='genero' value='Male'><label> Male </label><br/>");
-		out.println("<input type='radio' name='genero' value='Female'><label> Female</label>");
+		if ((this.usuarios.get(id).getGenero()).equals("Male"))
+		{
+			out.println("<input type='radio' name='genero' value='Male' checked><label> Male </label><br/>");
+			out.println("<input type='radio' name='genero' value='Female'><label> Female</label>");
+		}else
+		{
+			out.println("<input type='radio' name='genero' value='Male'><label> Male </label><br/>");
+			out.println("<input type='radio' name='genero' value='Female' checked><label> Female</label>");
+		}
 		out.println("</div>");
 		out.println("<div class='w3-text-dark-gray' align='center'>");
 		out.println("<br/><button id='boton_final' type='submit' class='w3-button w3-border w3-border-dark-gray w3-hover-pale-green w3-round-xxlarge'>Finish</button>");
