@@ -34,7 +34,6 @@ public class Delete extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		HttpSession session = request.getSession();
 		String [] users = request.getParameterValues("id");
-		System.out.print("USUARIOS A BORRAR: ");
 		User usuario = new User();
 		this.usuarios = usuario.getUsers();
 		ArrayList <User> aux = new ArrayList <User> ();
@@ -46,12 +45,12 @@ public class Delete extends HttpServlet
 		usuario.writeUsers(this.usuarios);
 		//Recuperar el nombre del usuario logueado
 		String nombre = (String) session.getAttribute("nombre");
-		String ruta = "LoginForm.html";
-		for (User u : usuarios)
+		String ruta = "Select?Action=Delete";
+		for (User u : aux)
 		{
 			if ((u.getNombre()).equals(nombre))
 			{
-				ruta = "Select?Action=Delete";
+				ruta = "LoginForm.html";
 				break;
 			}
 		}
@@ -74,14 +73,13 @@ public class Delete extends HttpServlet
 		out.println("<script src='Scripts.js' type='text/javascript'></script>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<script>");
 		//Mostrar modal al cargar la página
-		out.println("window.addEventListener('load', function() {showModal(document);});</script>");
+		out.println("<script>window.addEventListener('load', function() {showModal(document);});</script>");
 		//MODAL
 		out.println("<div id='modal' class='w3-modal'>");
 		out.println("<div class='w3-modal-content w3-card-4 w3-animate-zoom' id='modal_card'>");
 		out.println("<header class='w3-container w3-teal'>");
-		out.println("<span onclick='closeModalEdit(document,'" + ruta + "');' class='w3-button w3-display-topright w3-xlarge'>&times;</span>");
+		out.println("<button type='button' onclick='closeModal('" + ruta + "');' class='w3-button w3-display-topright w3-xlarge'>&times;</button>");
 		out.println("<h3>Los usuarios fueron eliminados correctamente</h3>");
 		out.println("</header>");
 		out.println("<div class='w3-container'>");
@@ -101,7 +99,7 @@ public class Delete extends HttpServlet
 		out.println("</div>");
 		out.println("</div>");
 		out.println("</div>");
-		out.println("<script>clickOutsideEdit('" + ruta + "');</script>");
+		out.println("<script>clickOutside('" + ruta + "');</script>");
 		out.println("</body>");
 		out.println("</html>");
 	}

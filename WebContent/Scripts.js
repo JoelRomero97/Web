@@ -17,33 +17,18 @@ function showModal(document)
 	document.getElementById('modal').style.display='block'
 }
 
-function closeModal(document)
-{
-	document.getElementById('modal').style.display='none'
-    window.location.href = 'AddUserForm.html';
-}
-
-function clickOutside()
-{
-	window.onclick = function modalFunction(event)
-	{
-	    if (event.target == document.getElementById('modal'))
-	        closeModal(document);
-	}
-}
-
-function closeModalEdit(document, ruta)
+function closeModal(ruta)
 {
 	document.getElementById('modal').style.display='none'
     window.location.href = ruta;
 }
 
-function clickOutsideEdit(ruta)
+function clickOutside(ruta)
 {
 	window.onclick = function modalFunction(event)
 	{
 	    if (event.target == document.getElementById('modal'))
-	        closeModalEdit(document, ruta);
+	        closeModal(ruta);
 	}
 }
 

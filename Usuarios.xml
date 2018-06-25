@@ -17,7 +17,7 @@
     <genero>Male</genero>
   </usuario>
   <usuario id="1" tipo="Administrator">
-    <nombre>Yamani Alvarez</nombre>
+    <nombre>Yamani Alvarez Gonzalez</nombre>
     <email>yamalvarez23@gmail.com</email>
     <password>12345678</password>
     <genero>Female</genero>

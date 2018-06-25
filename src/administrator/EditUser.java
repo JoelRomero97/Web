@@ -69,14 +69,13 @@ public class EditUser extends HttpServlet
 		out.println("<script src='Scripts.js' type='text/javascript'></script>");
 		out.println("</head>");
 		out.println("<body>");
-		out.println("<script>");
 		//Mostrar modal al cargar la página
-		out.println("window.addEventListener('load', function() {showModal(document);});</script>");
+		out.println("<script>window.addEventListener('load', function() {showModal(document);});</script>");
 		//MODAL
 		out.println("<div id='modal' class='w3-modal'>");
 		out.println("<div class='w3-modal-content w3-card-4 w3-animate-zoom' id='modal_card'>");
 		out.println("<header class='w3-container w3-teal'>");
-		out.println("<span onclick='closeModalEdit(document,'" + ruta + "');' class='w3-button w3-display-topright w3-xlarge'>&times;</span>");
+		out.println("<span onclick='closeModal('" + ruta + "');' class='w3-button w3-display-topright w3-xlarge'>&times;</span>");
 		out.println("<h3>El usuario fue modificado correctamente</h3>");
 		out.println("</header>");
 		out.println("<div class='w3-container'>");
@@ -89,7 +88,7 @@ public class EditUser extends HttpServlet
 		out.println("</div><br/>");
 		out.println("</div>");
 		out.println("</div>");
-		out.println("<script>clickOutsideEdit('" + ruta + "');</script>");
+		out.println("<script>clickOutside('" + ruta + "');</script>");
 		out.println("</body>");
 		out.println("</html>");
 	}
