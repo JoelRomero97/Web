@@ -8,6 +8,12 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import org.jdom2.JDOMException;
+
+import professor.RegisterGame;
+import shared.Game;
 
 /**
  * Servlet implementation class Login
@@ -16,6 +22,7 @@ import javax.servlet.http.HttpServletResponse;
 public class CreateGame extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	private Game juego;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -29,6 +36,22 @@ public class CreateGame extends HttpServlet
 		PrintWriter out = response.getWriter();
 		//Recuperamos los parámetros del formulario
 		String name = request.getParameter("name");
+		HttpSession session = request.getSession();
+		this.juego = new Game (name, (String) session.getAttribute("nombre"));
+		RegisterGame registro = new RegisterGame (this.juego);
+		try
+		{
+			if (registro.addGame())
+			{
+				System.out.println("Juego creado correctamente");
+			}else
+			{
+				System.out.println("Ocurrió un error al crear el juego");
+			}
+		} catch (JDOMException e)
+		{
+			e.printStackTrace();
+		}
 		String audio_correct = request.getParameter("audio_correcto");
 		String audio_incorrect = request.getParameter("audio_incorrecto");
 		String audio_correcto = "", audio_incorrecto = "";

@@ -44,7 +44,7 @@ public class Login extends HttpServlet
 				//Se guarda a nivel de sesión el nombre del usuario (clave - objeto)
 				session.setAttribute("nombre", usuario.getNombre());
 				//Enviamos al usuario al servlet correspondiente según su tipo
-				if ((usuario.getTipo()).equals("Administrator") || (usuario.getTipo()).equals("Professor"))
+				if ((usuario.getTipo()).equals("Administrator") || (usuario.getTipo()).equals("Professor") || (usuario.getTipo()).equals("Student"))
 					response.sendRedirect(usuario.getTipo());
 				else
 					response.sendRedirect("Fail?error=tipo");

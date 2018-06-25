@@ -7,7 +7,7 @@
 <!ELEMENT password (#PCDATA)>
 <!ELEMENT genero (#PCDATA)>
 <!ATTLIST usuario id CDATA #REQUIRED>
-<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>
+<!ATTLIST usuario tipo (Administrator|Professor|Student) #REQUIRED>
 ]>
 <USUARIOS>
   <usuario id="0" tipo="Administrator">
@@ -26,6 +26,12 @@
     <nombre>Ruben Peredo</nombre>
     <email>ruben@hotmail.com</email>
     <password>098765432</password>
+    <genero>Male</genero>
+  </usuario>
+  <usuario id="3" tipo="Student">
+    <nombre>Companiero Ibaniez</nombre>
+    <email>ibaniez@hotmail.com</email>
+    <password>poiuytrewq</password>
     <genero>Male</genero>
   </usuario>
 </USUARIOS>

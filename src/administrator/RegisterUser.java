@@ -67,7 +67,7 @@ public class RegisterUser
 			this.dtd.setInternalSubset("<!ELEMENT USUARIOS (usuario+)>\n"
 					+ "<!ELEMENT usuario (nombre,email,password,genero)>\n<!ELEMENT nombre (#PCDATA)>\n"
 					+ "<!ELEMENT email (#PCDATA)>\n<!ELEMENT password (#PCDATA)>\n<!ELEMENT genero (#PCDATA)>\n"
-					+ "<!ATTLIST usuario id CDATA #REQUIRED>\n<!ATTLIST usuario tipo (Administrator|Professor) #REQUIRED>\n");
+					+ "<!ATTLIST usuario id CDATA #REQUIRED>\n<!ATTLIST usuario tipo (Administrator|Professor|Student) #REQUIRED>\n");
 			//Se escribe el documento XML
 			this.documento = new Document(this.raiz, this.dtd);
 			this.xml = new XMLOutputter ();

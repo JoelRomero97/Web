@@ -2,12 +2,16 @@ package professor;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import shared.Game;
 
 /**
  * Servlet implementation class Login
@@ -16,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 public class SelectGame extends HttpServlet
 {
 	private static final long serialVersionUID = 1L;
+	private ArrayList <Game> juegos;
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
@@ -43,6 +48,11 @@ public class SelectGame extends HttpServlet
 			servlet = "EditGame";
 			boton = "Delete";
 		}
+		Game aux = new Game();
+		this.juegos = aux.getGames();
+		//Guardamos a nivel de sesión la lista de usuarios
+		HttpSession session = request.getSession();
+		session.setAttribute("juegos", this.juegos);
 		show_html (button_type, servlet, mensaje, boton, response);
 	}
 	
@@ -82,27 +92,17 @@ public class SelectGame extends HttpServlet
 		out.println("<p class='w3-xxlarge' align='center'>" + mensaje + "</p>");
 		out.println("<div class='w3-container'>");
 		out.println("<ul class='w3-ul w3-card-4'>");
-		out.println("<li class='w3-bar'>");
-		out.println("<span class='w3-bar-item w3-transparent w3-xlarge w3-right'><input class='w3-check' type='" + button_type + "' name='id' value='1'></span>");
-		out.println("<img src='images/animal1.png' class='w3-bar-item w3-circle w3-hide-small' id='avatar'>");
-		out.println("<div class='w3-bar-item'>");
-		out.println("<span class='w3-large'>*Game Name*</span><br/>");
-		out.println("<span>Created by: *Professor Name*</span>");
-		out.println("</div>");
-		out.println("</li>");
-		/*CUANDO YA SE GUARDEN LOS JUEGOS
-		 * for (int i = 0; i < juegos.length; i ++)
-		 * {
-		 * out.println("<li class='w3-bar'>");
-		 * out.println("<span class='w3-bar-item w3-transparent w3-xlarge w3-right'><input class='w3-check' type='" + button_type + "' name='id' value='" + i + "'></span>");
-		 * out.println("<img src='images/" + imagenes[i] + ".png' class='w3-bar-item w3-circle w3-hide-small' id='avatar'>");
-		 * out.println("<div class='w3-bar-item'>");
-		 * out.println("<span class='w3-large'>*Game Name*</span><br/>");
-		 * out.println("<span>Created by: *Professor Name*</span>");
-		 * out.println("</div>");
-		 * out.println("</li>");
-		 * }
-		 */
+		for (int i = 0; i < this.juegos.size(); i ++)
+		{
+			out.println("<li class='w3-bar'>");
+			out.println("<span class='w3-bar-item w3-transparent w3-xlarge w3-right'><input class='w3-check' type='" + button_type + "' name='id' value='" + i + "'></span>");
+			out.println("<img src='images/gameover.png' class='w3-bar-item w3-circle w3-hide-small' id='avatar'>");
+			out.println("<div class='w3-bar-item'>");
+			out.println("<span class='w3-large'>" + this.juegos.get(i).getNombre() + "</span><br/>");
+			out.println("<span>Created by: " + this.juegos.get(i).getCreador() + "</span>");
+			out.println("</div>");
+			out.println("</li>");
+		 }
 		out.println("</ul>");
 		out.println("</div>");
 		//BUTTON TO DELETE/EDIT GAME(S)

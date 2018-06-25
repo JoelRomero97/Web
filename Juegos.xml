@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE JUEGOS [
+<!ELEMENT JUEGOS (juego+)>
+<!ELEMENT juego (nombre,creador)>
+<!ELEMENT nombre (#PCDATA)>
+<!ELEMENT creador (#PCDATA)><!ATTLIST juego id CDATA #REQUIRED>
+]>
+<JUEGOS>
+  <juego id="0">
+    <nombre>Juego ESCOM</nombre>
+    <creador>Ruben Peredo</creador>
+  </juego>
+  <juego id="1">
+    <nombre>El juego de la muerte</nombre>
+    <creador>Ruben Peredo</creador>
+  </juego>
+</JUEGOS>

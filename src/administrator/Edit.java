@@ -95,10 +95,17 @@ public class Edit extends HttpServlet
 		{
 			out.println("<input type='radio' name='tipo' value='Administrator' checked><label> Administrator</label><br/>");
 			out.println("<input type='radio' name='tipo' value='Professor'><label> Professor</label><br/>");
-		}else
+			out.println("<input type='radio' name='tipo' value='Student'><label> Student</label><br/>");
+		}else if ((this.usuarios.get(id).getTipo()).equals("Professor"))
 		{
 			out.println("<input type='radio' name='tipo' value='Administrator'><label> Administrator</label><br/>");
 			out.println("<input type='radio' name='tipo' value='Professor' checked><label> Professor</label><br/>");
+			out.println("<input type='radio' name='tipo' value='Student'><label> Student</label><br/>");
+		}else
+		{
+			out.println("<input type='radio' name='tipo' value='Administrator'><label> Administrator</label><br/>");
+			out.println("<input type='radio' name='tipo' value='Professor'><label> Professor</label><br/>");
+			out.println("<input type='radio' name='tipo' value='Student' checked><label> Student</label><br/>");
 		}
 		out.println("<p class='w3-text-dark-gray w3-large'>Gender:</p>");
 		if ((this.usuarios.get(id).getGenero()).equals("Male"))
