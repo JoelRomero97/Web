@@ -4,6 +4,22 @@ body, h1, h2
 	font-family: "Lobster", serif;
 }
 
+.flex_container
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+}
+
+.target {
+    float: left;
+    width: 210px;
+    height: 210px;
+    margin: 10px;
+    padding: 5px;
+    border: 1px solid black;
+}
+
 h1, p
 {
 	color: tan;
@@ -79,4 +95,20 @@ li:hover:nth-child(even)
 {
 	width: 30%;
 	margin-top: 4%;
+}
+
+/*Images drag and drop Styles*/
+div.container
+{
+    position: absolute;
+    z-index: 9;
+    background-color: transparent;
+    text-align: center;
+}
+
+div.image
+{
+	padding: 10px;
+    cursor: move;
+    z-index: 10;
 }

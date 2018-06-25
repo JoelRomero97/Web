@@ -12,16 +12,16 @@
 <body>
 	<!-- BARRA NAVEGACIÓN -->
 	<div class="w3-bar w3-border w3-large">
-		<a href="ProfNavigation.html" class="w3-bar-item w3-button w3-pale-blue w3-hover-blue" id="links_barra"><i class="material-icons">&#xe88a;</i>Home</a>
+		<a href="Professor" class="w3-bar-item w3-button w3-pale-blue w3-hover-blue" id="links_barra"><i class="material-icons">&#xe88a;</i>Home</a>
 		<a href="#" class="w3-bar-item w3-button w3-amber w3-hover-pale-yellow" id="links_barra"><i class="material-icons">&#xe148;</i>Add Game</a>
-		<a href="SelectGame.html" class="w3-bar-item w3-button w3-pale-red w3-hover-pink" id="links_barra"><i class="material-icons">&#xe150;</i>Edit Game</a>
-		<a href="DeleteGame.html" class="w3-bar-item w3-button w3-pale-green w3-hover-light-green" id="links_barra"><i class="material-icons">&#xe16c;</i>Delete Game</a>
+		<a href="SelectGame?Action=Edit" class="w3-bar-item w3-button w3-pale-red w3-hover-pink" id="links_barra"><i class="material-icons">&#xe150;</i>Edit Game</a>
+		<a href="SelectGame?Action=Delete" class="w3-bar-item w3-button w3-pale-green w3-hover-light-green" id="links_barra"><i class="material-icons">&#xe16c;</i>Delete Game</a>
 		<a href="LoginForm.html" class="w3-bar-item w3-button w3-sand w3-hover-brown" id="links_barra"><i class="material-icons">&#xe879;</i>Logout</a>
 	</div>
 	<div align="center">
   		<p class="w3-xxlarge">Add Game</p>
   	</div>
-	<form class="form-horizontal" action="Login" method="post">
+	<form class="form-horizontal" action="CreateGame" method="post">
 		<div class="form-group col-sm-10" align="center">
 			<input type="text" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Name of Game" name="name">
 			<p class="w3-text-dark-gray w3-large">Correct Audios:</p>
@@ -44,7 +44,7 @@
 			</audio><br/>			
 			<p class="w3-text-dark-gray w3-large">Images (three images recommended):</p>
 			<input type="checkbox" name="animal" value="animal1">
-			<img src="images/animal1.jpg" width="200" height="200"><br/>
+			<img src="images/animal1.png" width="200" height="200"><br/>
 			<input type="checkbox" name="animal" value="animal2">
 			<img src="images/animal2.png" width="200" height="200"><br/>
 			<input type="checkbox" name="animal" value="animal3">

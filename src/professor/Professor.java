@@ -49,8 +49,8 @@ public class Professor extends HttpServlet
 		out.println("<div class='w3-bar w3-border w3-large'>");
 		out.println("<a href='#' class='w3-bar-item w3-button w3-blue w3-hover-pale-blue' id='links_barra'><i class='material-icons'>&#xe88a;</i>Home</a>");
 		out.println("<a href='AddGame.html' class='w3-bar-item w3-button w3-pale-yellow w3-hover-amber' id='links_barra'><i class='material-icons'>&#xe148;</i>Add Game</a>");
-		out.println("<a href='SelectGame.html' class='w3-bar-item w3-button w3-pale-red w3-hover-pink' id='links_barra'><i class='material-icons'>&#xe150;</i>Edit Game</a>");
-		out.println("<a href='DeleteGame.html' class='w3-bar-item w3-button w3-pale-green w3-hover-light-green' id='links_barra'><i class='material-icons'>&#xe16c;</i>Delete Game</a>");
+		out.println("<a href='SelectGame?Action=Edit' class='w3-bar-item w3-button w3-pale-red w3-hover-pink' id='links_barra'><i class='material-icons'>&#xe150;</i>Edit Game</a>");
+		out.println("<a href='SelectGame?Action=Delete' class='w3-bar-item w3-button w3-pale-green w3-hover-light-green' id='links_barra'><i class='material-icons'>&#xe16c;</i>Delete Game</a>");
 		out.println("<a href='LoginForm.html' class='w3-bar-item w3-button w3-sand w3-hover-brown' id='links_barra'><i class='material-icons'>&#xe879;</i>Logout</a>");
 		out.println("</div>");
 		//WELCOME
