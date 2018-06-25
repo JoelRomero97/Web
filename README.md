@@ -13,13 +13,19 @@ Aplicación web para ayudar a niños de primaria a aprender a leer.
 ### Modificar las siguientes rutas:
 
 - src/administrator:
-  - RegisterUser.java: Línea 37 (Ruta al archivo 'Usuarios.xml').
+  - RegisterUser.java: Línea 39 (Ruta al archivo 'Usuarios.xml').
 
 - src/login:
   - LogUser.java: Línea 31 (Ruta al archivo 'Usuarios.xml').
 
+- src/professor:
+  - RegisterGame.java: Línea 39 (Ruta al archivo 'Juegos.xml').
+
 - src/shared
-  - User.java: Línea 26 (Ruta al archivo 'Usuarios.xml').
+  - User.java: Línea 27 (Ruta al archivo 'Usuarios.xml').
+
+- src/shared:
+  - Game.java: Línea 24 (Ruta al archivo 'Juegos.xml').
 
 ## Autores
 
