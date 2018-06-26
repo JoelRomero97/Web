@@ -10,22 +10,11 @@ Aplicación web para ayudar a niños de primaria a aprender a leer.
 - Las imágenes deben ser de extensión ".jpeg"
 - Las imágenes agregadas deben ser agregadas manualmente en WebContent/LoginForm.html
 
-### Modificar las siguientes rutas:
+### Agregar los siguientes archivos JAR al Java Build Path (Dentro de WebContent -> WEB-INF -> lib):
 
-- src/administrator:
-  - RegisterUser.java: Línea 39 (Ruta al archivo 'Usuarios.xml').
-
-- src/login:
-  - LogUser.java: Línea 31 (Ruta al archivo 'Usuarios.xml').
-
-- src/professor:
-  - RegisterGame.java: Línea 39 (Ruta al archivo 'Juegos.xml').
-
-- src/shared
-  - User.java: Línea 27 (Ruta al archivo 'Usuarios.xml').
-
-- src/shared:
-  - Game.java: Línea 24 (Ruta al archivo 'Juegos.xml').
+- commons-fileupload-1.3.3
+- commons-io-2.5
+- jdom-2.0.6
 
 ## Autores
 
