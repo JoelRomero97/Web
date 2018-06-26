@@ -34,7 +34,7 @@ public class RegisterGame
 		setRuta(ruta);
 	}
 	
-	public RegisterGame (Game juego)
+	public RegisterGame (Game juego, String ruta)
 	{
 		//Ruta del archivo a leer/escribir
 		setRuta(ruta);

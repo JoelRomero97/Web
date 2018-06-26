@@ -21,40 +21,15 @@
 	<div align="center">
   		<p class="w3-xxlarge">Add Game</p>
   	</div>
-	<form class="form-horizontal" action="CreateGame" method="post">
+	<form class="form-horizontal" action="CreateGame" method="post" enctype="multipart/form-data">
 		<div class="form-group col-sm-10" align="center">
-			<input type="text" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Name of Game" name="name">
-			<p class="w3-text-dark-gray w3-large">Correct Audios:</p>
-			<input type="radio" name="audio_correcto" value="correct1">
-			<audio controls>
-				<source src="audios/correct1.wav" type="audio/wav">
-			</audio><br/>
-			<input type="radio" name="audio_correcto" value="correct2">
-			<audio controls>
-				<source src="audios/correct2.mp3" type="audio/mp3">
-			</audio><br/>
-			<p class="w3-text-dark-gray w3-large">Incorrect Audios:</p>
-			<input type="radio" name="audio_incorrecto" value="incorrect1">
-			<audio controls>
-				<source src="audios/incorrect1.wav" type="audio/wav">
-			</audio><br/>
-			<input type="radio" name="audio_incorrecto" value="incorrect2">
-			<audio controls>
-				<source src="audios/incorrect2.mp3" type="audio/mp3">
-			</audio><br/>			
-			<p class="w3-text-dark-gray w3-large">Images (three images recommended):</p>
-			<input type="checkbox" name="animal" value="animal1">
-			<img src="images/animal1.png" width="200" height="200"><br/>
-			<input type="checkbox" name="animal" value="animal2">
-			<img src="images/animal2.png" width="200" height="200"><br/>
-			<input type="checkbox" name="animal" value="animal3">
-			<img src="images/animal3.png" width="200" height="200"><br/>
-			<input type="checkbox" name="animal" value="animal4">
-			<img src="images/animal4.png" width="200" height="200"><br/>
-			<input type="checkbox" name="animal" value="animal5">
-			<img src="images/animal5.png" width="200" height="200"><br/>
-			<input type="checkbox" name="animal" value="animal6">
-			<img src="images/animal6.png" width="200" height="200"><br/>
+			<input type="text" class="w3-input w3-border w3-hover-light-gray w3-round-xxlarge w3-animate-input" id="campo" placeholder="Name of Game" name="name"><br>
+			<p class="w3-text-dark-gray w3-large">Correct Audio:</p>
+			<input type="file" name="audio_correcto"><br><br>
+			<p class="w3-text-dark-gray w3-large">Incorrect Audio:</p>
+			<input type="file" name="audio_incorrecto"><br><br>
+			<p class="w3-text-dark-gray w3-large">Images (Multiples of three recommended):</p>
+			<input type="file" name="imagenes" multiple>
 		</div>
 		<div class="w3-text-dark-gray" align="center">
 			<br/><button id="boton_final" type="submit" class="w3-button w3-border w3-border-dark-gray w3-hover-pale-green w3-round-xxlarge">Finish</button>

@@ -13,10 +13,10 @@ body, h1, h2, h3
 
 .target {
     float: left;
-    width: 210px;
-    height: 210px;
-    margin: 10px;
-    padding: 5px;
+    width: 105px;
+    height: 105px;
+    margin: 5px;
+    padding: 2.5px;
     border: 1px solid black;
 }
 
