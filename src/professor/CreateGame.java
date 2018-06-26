@@ -49,7 +49,7 @@ public class CreateGame extends HttpServlet
 		ArrayList <String> imagenes = new ArrayList <String> ();
 		String audio_correcto = "";
 		String audio_incorrecto = "";
-		String name = request.getParameter("name");
+		String name = "";
 		String rutaAudios = context.getRealPath("/") + "audios\\";
 		String rutaImagenes = context.getRealPath("/") + "images\\";
 		HttpSession session = request.getSession();
@@ -108,6 +108,9 @@ public class CreateGame extends HttpServlet
 						imagenes.add(fileName);
 						item.write(this.file);
 					}
+				}else
+				{
+					name = item.getString();
 				}
 			}
 		}catch (Exception e)
