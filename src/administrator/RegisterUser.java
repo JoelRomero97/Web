@@ -121,7 +121,7 @@ public class RegisterUser
 		try
 		{
 			//Objeto de tipo Document para manipular archivo XML
-			this.documento = builder.build(this.archivo);
+			this.documento = this.builder.build(this.archivo);
 			//Obtenemos el nodo raíz del documento XML
 			Element raiz = this.documento.getRootElement();
 			//Obtenemos la lista de todos los elementos 'usuario' del nodo raíz

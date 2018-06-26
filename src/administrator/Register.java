@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.jdom2.JDOMException;
 
@@ -35,10 +34,6 @@ public class Register extends HttpServlet
 		this.usuario = new User (request.getParameter("nombre"), request.getParameter("email"), 
 								 request.getParameter("password"), request.getParameter("tipo"), 
 								 request.getParameter("genero"), context.getRealPath("/") + "Usuarios.xml");
-		//Se recupera la sesión
-		HttpSession session = request.getSession();
-		//Se guarda a nivel de sesión el username ingresado (clave - objeto)
-		session.setAttribute("email", this.usuario.getEmail());
 		RegisterUser registro = new RegisterUser (this.usuario, context.getRealPath("/") + "Usuarios.xml");
 		String color = "";
 		String mensaje = "";

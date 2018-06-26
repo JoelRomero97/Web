@@ -28,10 +28,4 @@
     <password>098765432</password>
     <genero>Male</genero>
   </usuario>
-  <usuario id="3" tipo="Student">
-    <nombre>Companiero Ibaniez</nombre>
-    <email>ibaniez@hotmail.com</email>
-    <password>poiuytrewq</password>
-    <genero>Male</genero>
-  </usuario>
 </USUARIOS>

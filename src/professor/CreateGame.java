@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -50,8 +51,8 @@ public class CreateGame extends HttpServlet
 		String audio_correcto = "";
 		String audio_incorrecto = "";
 		String name = request.getParameter("name");
-		String rutaAudios = context.getRealPath("/").split("[.]metadata")[0] + "Proyecto\\WebContent\\audios\\";
-		String rutaImagenes = context.getRealPath("/").split("[.]metadata")[0] + "Proyecto\\WebContent\\images\\";
+		String rutaAudios = context.getRealPath("/") + "audios\\";
+		String rutaImagenes = context.getRealPath("/") + "images\\";
 		HttpSession session = request.getSession();
 		if (!ServletFileUpload.isMultipartContent(request))
 			System.out.println("ERROR");
@@ -127,6 +128,11 @@ public class CreateGame extends HttpServlet
 			}
 		} catch (JDOMException e)
 		{
+			e.printStackTrace();
+		}
+		try {
+			TimeUnit.SECONDS.sleep(2);
+		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		out.println("<!DOCTYPE html>");
