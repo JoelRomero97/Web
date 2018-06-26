@@ -117,7 +117,7 @@ public class CreateGame extends HttpServlet
 		{
 			e.printStackTrace();
 		}
-		this.juego = new Game (name, (String) session.getAttribute("nombre"), context.getRealPath("/") + "Juegos.xml");
+		this.juego = new Game (name, (String) session.getAttribute("nombre"), audio_correcto, audio_incorrecto, imagenes, context.getRealPath("/") + "Juegos.xml");
 		RegisterGame registro = new RegisterGame (this.juego, context.getRealPath("/") + "Juegos.xml");
 		try
 		{

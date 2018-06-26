@@ -3,6 +3,7 @@ package professor;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import org.jdom2.DocType;
@@ -66,8 +67,8 @@ public class RegisterGame
 			//Tipo de documento
 			this.dtd = new DocType (this.raiz.getName());
 			dtd.setInternalSubset("<!ELEMENT JUEGOS (juego+)>\n"
-					+ "<!ELEMENT juego (nombre,creador)>\n<!ELEMENT nombre (#PCDATA)>\n<!ELEMENT creador (#PCDATA)>"
-					+ "<!ATTLIST juego id CDATA #REQUIRED>\n");
+					+ "<!ELEMENT juego (nombre,creador,audio_correcto,audio_incorrecto,imagen+)>\n<!ELEMENT nombre (#PCDATA)>\n<!ELEMENT creador (#PCDATA)>"
+					+ "\n<!ELEMENT audio_correcto (#PCDATA)>\n<!ELEMENT audio_incorrecto (#PCDATA)>\n<!ELEMENT imagen (#PCDATA)>\n<!ATTLIST juego id CDATA #REQUIRED>\n");
 			//Se escribe el documento XML
 			this.documento = new Document(this.raiz, this.dtd);
 			this.xml = new XMLOutputter ();
@@ -95,10 +96,22 @@ public class RegisterGame
 		game.setAttribute("id", Integer.toString(juego.getId()));
 		Element nombre = new Element ("nombre");
 		Element creador = new Element ("creador");
+		Element audio_correcto = new Element ("audio_correcto");
+		Element audio_incorrecto = new Element ("audio_incorrecto");
 		nombre.setText(juego.getNombre());
 		creador.setText(juego.getCreador());
+		audio_correcto.setText(juego.getAudio_correcto());
+		audio_incorrecto.setText(juego.getAudio_incorrecto());
 		game.addContent(nombre);
 		game.addContent(creador);
+		game.addContent(audio_correcto);
+		game.addContent(audio_incorrecto);
+		for (int i = 0; i < juego.getImagenes().size(); i ++)
+		{
+			Element imagen = new Element ("imagen");
+			imagen.setText(juego.getImagenes().get(i));
+			game.addContent(imagen);
+		}
 		return game;
 	}
 	
@@ -125,6 +138,15 @@ public class RegisterGame
 				juego.setId(Integer.parseInt(game.getAttributeValue("id")));
 				juego.setNombre(game.getChildText("nombre"));
 				juego.setCreador(game.getChildText("creador"));
+				juego.setAudio_correcto(game.getChildText("audio_correcto"));
+				juego.setAudio_incorrecto(game.getChildText("audio_incorrecto"));
+				List <Element> imagenes = game.getChildren("imagen");
+				ArrayList <String> aux = new ArrayList <String> ();
+				for (Element img : imagenes)
+				{
+					aux.add(img.getText());
+				}
+				juego.setImagenes(aux);
 				this.raiz.addContent(createGame (juego));
 				this.lastID = juego.getId();
 			}
