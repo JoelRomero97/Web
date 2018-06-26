@@ -6,7 +6,6 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -130,11 +129,6 @@ public class CreateGame extends HttpServlet
 		{
 			e.printStackTrace();
 		}
-		try {
-			TimeUnit.SECONDS.sleep(2);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
 		out.println("<!DOCTYPE html>");
 		out.println("<html>");
 		out.println("<head>");
@@ -160,8 +154,12 @@ public class CreateGame extends HttpServlet
 		out.println("</div>");
 		out.println("<div class='form-group col-sm-10' align='center'>");
 		out.println("<p class='w3-text-dark-gray w3-large'>Selected audios:</p>");
-		out.println("<audio controls src='audios/" + audio_correcto + "'><br>");
-		out.println("<audio controls src='audios/" + audio_incorrecto + "'><br>");
+		out.println("<audio controls>");
+		out.println("<source src='audios/" + audio_correcto + "' type='audio/" + audio_correcto.split("[.]")[1] + "'>");
+		out.println("</audio><br/>");
+		out.println("<audio controls>");
+		out.println("<source src='audios/" + audio_incorrecto + "' type='audio/" + audio_incorrecto.split("[.]")[1] + "'>");
+		out.println("</audio><br/>");
 		out.println("<p class='w3-text-dark-gray w3-large'>Selected images:</p>");
 		out.println("<div class='flex_container'>");
 		for (int i = 0; i < imagenes.size(); i ++)
@@ -173,7 +171,7 @@ public class CreateGame extends HttpServlet
 		out.println("</div>");
 		out.println("</div>");
 		out.println("<div class='w3-text-dark-gray' align='center'>");
-		out.println("<br/><button id='boton_final' type='submit' class='w3-button w3-border w3-border-dark-gray w3-hover-pale-green w3-round-xxlarge'>Finish</button>");
+		out.println("<br/><button id='boton_final' type='submit' class='w3-button w3-border w3-border-dark-gray w3-hover-pale-green w3-round-xxlarge'>Create</button>");
 		out.println("</div>");
 		out.println("</body>");
 		out.println("</html>");
