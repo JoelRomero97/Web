@@ -24,20 +24,22 @@ public class User
 	private String password;
 	private String tipo;
 	private String genero;
-	private String ruta = "C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Usuarios.xml";
+	private String ruta;
 	
 	/*
 	 * Constructor utilizado para crear un usuario vacío
 	 */
-	public User ()
+	public User (String ruta)
 	{
+		this.setRuta(ruta);
 	}
 	
 	/*
 	 * Constructor utilizado para el login (solo se manda email y contraseña)
 	 */
-	public User (String email, String password)
+	public User (String email, String password, String ruta)
 	{
+		this.setRuta(ruta);
 		this.setEmail(email);
 		this.setPassword(password);
 	}
@@ -45,8 +47,9 @@ public class User
 	/*
 	 * Constructor utilizado para eliminar/editar usuarios
 	 */
-	public User (String nombre, String email, String password, String tipo, String genero)
+	public User (String nombre, String email, String password, String tipo, String genero, String ruta)
 	{
+		this.setRuta(ruta);
 		this.setNombre(nombre);
 		this.setEmail(email);
 		this.setPassword(password);
@@ -73,7 +76,7 @@ public class User
 			for (Element user : users)
 			{
 				//Se crea un usuario vacío
-				User usuario = new User ();
+				User usuario = new User (this.ruta);
 				usuario.setId(Integer.parseInt(user.getAttributeValue("id")));
 				usuario.setTipo(user.getAttributeValue("tipo"));
 				usuario.setNombre(user.getChildText("nombre"));
@@ -104,7 +107,7 @@ public class User
 			Element raiz = new Element ("USUARIOS");
 			for (User usuario : usuarios)
 			{
-				RegisterUser r = new RegisterUser ();
+				RegisterUser r = new RegisterUser (this.ruta);
 				raiz.addContent(r.createUser(usuario));
 			}
 			dtd = new DocType (raiz.getName());
@@ -183,5 +186,10 @@ public class User
 	public void setId(int id)
 	{
 		this.id = id;
+	}
+	
+	public void setRuta (String ruta)
+	{
+		this.ruta = ruta;
 	}
 }

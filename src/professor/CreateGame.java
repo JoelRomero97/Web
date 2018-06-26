@@ -3,6 +3,7 @@ package professor;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -37,7 +38,8 @@ public class CreateGame extends HttpServlet
 		//Recuperamos los parámetros del formulario
 		String name = request.getParameter("name");
 		HttpSession session = request.getSession();
-		this.juego = new Game (name, (String) session.getAttribute("nombre"));
+		ServletContext context = request.getServletContext();
+		this.juego = new Game (name, (String) session.getAttribute("nombre"), context.getRealPath("/") + "Juegos.xml");
 		RegisterGame registro = new RegisterGame (this.juego);
 		try
 		{

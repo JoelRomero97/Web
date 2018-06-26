@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -48,7 +49,8 @@ public class SelectGame extends HttpServlet
 			servlet = "EditGame";
 			boton = "Delete";
 		}
-		Game aux = new Game();
+		ServletContext context = request.getServletContext();
+		Game aux = new Game(context.getRealPath("/") + "Juegos.xml");
 		this.juegos = aux.getGames();
 		//Guardamos a nivel de sesión la lista de usuarios
 		HttpSession session = request.getSession();

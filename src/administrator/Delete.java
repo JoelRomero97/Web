@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -34,7 +35,8 @@ public class Delete extends HttpServlet
 		response.setContentType("text/html;charset=UTF-8");
 		HttpSession session = request.getSession();
 		String [] users = request.getParameterValues("id");
-		User usuario = new User();
+		ServletContext context = request.getServletContext();
+		User usuario = new User(context.getRealPath("/") + "Usuarios.xml");
 		this.usuarios = usuario.getUsers();
 		ArrayList <User> aux = new ArrayList <User> ();
 		for (int i = (users.length - 1); i >= 0 ; i --)

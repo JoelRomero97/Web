@@ -21,20 +21,22 @@ public class Game
 	private int id;
 	private String nombre;
 	private String creador;
-	private String ruta = "C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Juegos.xml";
+	private String ruta;
 	
 	/*
 	 * Constructor utilizado para crear un juego vacío
 	 */
-	public Game ()
+	public Game (String ruta)
 	{
+		this.setRuta(ruta);
 	}
 	
 	/*
 	 * Constructor utilizado para crear juego (se manda nombre y creador)
 	 */
-	public Game (String nombre, String creador)
+	public Game (String nombre, String creador, String ruta)
 	{
+		this.setRuta(ruta);
 		this.setNombre(nombre);
 		this.setCreador(creador);
 	}
@@ -58,7 +60,7 @@ public class Game
 			for (Element game : games)
 			{
 				//Se crea un juego vacío
-				Game juego = new Game ();
+				Game juego = new Game (this.ruta);
 				juego.setId(Integer.parseInt(game.getAttributeValue("id")));
 				juego.setNombre(game.getChildText("nombre"));
 				juego.setCreador(game.getChildText("creador"));
@@ -86,7 +88,7 @@ public class Game
 			Element raiz = new Element ("JUEGOS");
 			for (Game juego : juegos)
 			{
-				RegisterGame r = new RegisterGame ();
+				RegisterGame r = new RegisterGame (this.ruta);
 				raiz.addContent(r.createGame(juego));
 			}
 			dtd = new DocType (raiz.getName());
@@ -134,5 +136,10 @@ public class Game
 	public void setId(int id)
 	{
 		this.id = id;
+	}
+	
+	public void setRuta (String ruta)
+	{
+		this.ruta = ruta;
 	}
 }

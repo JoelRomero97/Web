@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -42,7 +43,8 @@ public class EditUser extends HttpServlet
 		String nombre = (String) session.getAttribute("nombre");
 		String id_usuario = (String) session.getAttribute("id");
 		int id = Integer.parseInt(id_usuario);
-		this.usuario = new User();
+		ServletContext context = request.getServletContext();
+		this.usuario = new User(context.getRealPath("/") + "Usuarios.xml");
 		modify_user(request, id);
 		this.usuarios.set(id, this.usuario);
 		this.usuario.writeUsers(usuarios);

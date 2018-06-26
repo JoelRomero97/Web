@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,7 +48,8 @@ public class Select extends HttpServlet
 			mensaje = "Select the user(s) to delete";
 			boton = "Delete";
 		}
-		User aux = new User();
+		ServletContext context = request.getServletContext();
+		User aux = new User(context.getRealPath("/") + "Usuarios.xml");
 		this.usuarios = aux.getUsers();
 		//Guardamos a nivel de sesión la lista de usuarios
 		HttpSession session = request.getSession();

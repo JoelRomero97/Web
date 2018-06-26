@@ -19,16 +19,18 @@ public class LogUser
 	private Document documento;
 	private File archivo;
 	private Element raiz;
+	private String ruta;
 	private List <Element> users;
 	
-	public LogUser (User usuario) throws JDOMException, IOException
+	public LogUser (User usuario, String ruta) throws JDOMException, IOException
 	{
 		//Se inicializa la lista de usuarios <email, password>
 		this.usuarios = new HashMap <String, String> ();
 		//Se inicializa el objeto SAXBuilder
 		this.builder = new SAXBuilder ();
+		setRuta (ruta);
 		//Se abre el archivo XML que contiene a los usuarios
-		this.archivo = new File ("C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Usuarios.xml");
+		this.archivo = new File (this.ruta);
 		//Obtenemos todos los usuarios con sus contraseñas
 		getUsers (usuario);
 	}
@@ -93,5 +95,10 @@ public class LogUser
 			return 1;
 		}
 		return 2;
+	}
+	
+	public void setRuta (String ruta)
+	{
+		this.ruta = ruta;
 	}
 }

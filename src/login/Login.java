@@ -2,6 +2,7 @@ package login;
 
 import java.io.IOException;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,15 +31,16 @@ public class Login extends HttpServlet
 		//Recuperamos los parámetros user y password del formulario
 		String user = request.getParameter("email");
 		String pass = request.getParameter("password");
+		ServletContext context = request.getServletContext();
 		//Se crea un usuario nuevo con los parámetros de email y contraseña
-		User usuario = new User (user, pass);
+		User usuario = new User (user, pass, context.getRealPath("/") + "Usuarios.xml");
 		//Se recupera la sesión
 		HttpSession session = request.getSession();
 		//Se guarda a nivel de sesión el email del usuario (clave - objeto)
 		session.setAttribute("email", usuario.getEmail());
 		try
 		{
-			LogUser login = new LogUser (usuario);
+			LogUser login = new LogUser (usuario, context.getRealPath("/") + "Usuarios.xml");
 			if (login.validateUser(user, pass) == 0)
 			{
 				//Se guarda a nivel de sesión el nombre del usuario (clave - objeto)

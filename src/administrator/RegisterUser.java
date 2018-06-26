@@ -29,14 +29,16 @@ public class RegisterUser
 	private String ruta;
 	private int lastID;
 	
-	public RegisterUser ()
-	{
-	}
-	
-	public RegisterUser (User usuario)
+	public RegisterUser (String ruta)
 	{
 		//Ruta del archivo a leer/escribir
-		this.ruta = "C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Usuarios.xml";
+		setRuta (ruta);
+	}
+	
+	public RegisterUser (User usuario, String ruta)
+	{
+		//Ruta del archivo a leer/escribir
+		setRuta (ruta);
 		//Se guardan los datos del nuevo usuario
 		this.usuario = usuario;
 		//Se inicializa el objeto SAXBuilder
@@ -125,7 +127,7 @@ public class RegisterUser
 			//Obtenemos la lista de todos los elementos 'usuario' del nodo raíz
 			this.users = raiz.getChildren("usuario");
 			//Se crea un usuario vacío
-			User usuario = new User ();
+			User usuario = new User (this.ruta);
 			//Recorremos la lista de usuarios obtenida
 			for (Element user : this.users)
 			{
@@ -146,5 +148,10 @@ public class RegisterUser
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void setRuta (String ruta)
+	{
+		this.ruta = ruta;
 	}
 }

@@ -3,6 +3,7 @@ package administrator;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -29,15 +30,16 @@ public class Register extends HttpServlet
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 	throws ServletException, IOException
 	{
+		ServletContext context = request.getServletContext();
 		//Creamos un usuario con los parámetros recibidos del formulario
 		this.usuario = new User (request.getParameter("nombre"), request.getParameter("email"), 
 								 request.getParameter("password"), request.getParameter("tipo"), 
-								 request.getParameter("genero"));
+								 request.getParameter("genero"), context.getRealPath("/") + "Usuarios.xml");
 		//Se recupera la sesión
 		HttpSession session = request.getSession();
 		//Se guarda a nivel de sesión el username ingresado (clave - objeto)
 		session.setAttribute("email", this.usuario.getEmail());
-		RegisterUser registro = new RegisterUser (this.usuario);
+		RegisterUser registro = new RegisterUser (this.usuario, context.getRealPath("/") + "Usuarios.xml");
 		String color = "";
 		String mensaje = "";
 		try

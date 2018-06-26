@@ -29,14 +29,15 @@ public class RegisterGame
 	private String ruta;
 	private int lastID;
 	
-	public RegisterGame ()
+	public RegisterGame (String ruta)
 	{
+		setRuta(ruta);
 	}
 	
 	public RegisterGame (Game juego)
 	{
 		//Ruta del archivo a leer/escribir
-		this.ruta = "C:/Users/Joel_/Desktop/ESCOM/Tecnologías para la Web/Proyecto/Juegos.xml";
+		setRuta(ruta);
 		//Se guardan los datos del nuevo juego
 		this.juego = juego;
 		//Se inicializa el objeto SAXBuilder
@@ -117,7 +118,7 @@ public class RegisterGame
 			//Obtenemos la lista de todos los elementos 'juego' del nodo raíz
 			this.games = raiz.getChildren("juego");
 			//Se crea un juego vacío
-			Game juego = new Game ();
+			Game juego = new Game (this.ruta);
 			//Recorremos la lista de juegos obtenida
 			for (Element game : this.games)
 			{
@@ -135,5 +136,10 @@ public class RegisterGame
 		{
 			e.printStackTrace();
 		}
+	}
+	
+	public void setRuta(String ruta)
+	{
+		this.ruta = ruta;
 	}
 }
